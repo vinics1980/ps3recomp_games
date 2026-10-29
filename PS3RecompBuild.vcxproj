@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64"><Configuration>Debug</Configuration><Platform>x64</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64"><Configuration>Release</Configuration><Platform>x64</Platform></ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals"><ProjectGuid>{B0C2E5D7-91A4-4B4B-AB73-8A42C7A97D21}</ProjectGuid><Keyword>MakeFileProj</Keyword><RootNamespace>PS3RecompBuild</RootNamespace><WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion></PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration"><ConfigurationType>Makefile</ConfigurationType><UseDebugLibraries>true</UseDebugLibraries><PlatformToolset>v143</PlatformToolset></PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration"><ConfigurationType>Makefile</ConfigurationType><UseDebugLibraries>false</UseDebugLibraries><PlatformToolset>v143</PlatformToolset></PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup><OutDir>$(SolutionDir)out\</OutDir><IntDir>$(SolutionDir)out\obj\</IntDir></PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"><NMakeBuildCommandLine>powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(SolutionDir)BUILD_PS3_GAME.ps1" -EbootPath "$(SolutionDir)input\EBOOT.ELF"</NMakeBuildCommandLine><NMakeReBuildCommandLine>powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(SolutionDir)BUILD_PS3_GAME.ps1" -EbootPath "$(SolutionDir)input\EBOOT.ELF" -Force</NMakeReBuildCommandLine><NMakeCleanCommandLine>if exist "$(SolutionDir)ports\EBOOT" rmdir /s /q "$(SolutionDir)ports\EBOOT"</NMakeCleanCommandLine><NMakeOutput>$(SolutionDir)ports\EBOOT\build\MyGameRecomp.exe</NMakeOutput></PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'"><NMakeBuildCommandLine>powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(SolutionDir)BUILD_PS3_GAME.ps1" -EbootPath "$(SolutionDir)input\EBOOT.ELF"</NMakeBuildCommandLine><NMakeReBuildCommandLine>powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(SolutionDir)BUILD_PS3_GAME.ps1" -EbootPath "$(SolutionDir)input\EBOOT.ELF" -Force</NMakeReBuildCommandLine><NMakeCleanCommandLine>if exist "$(SolutionDir)ports\EBOOT" rmdir /s /q "$(SolutionDir)ports\EBOOT"</NMakeCleanCommandLine><NMakeOutput>$(SolutionDir)ports\EBOOT\build\MyGameRecomp.exe</NMakeOutput></PropertyGroup>
+  <ItemGroup><None Include="BUILD_PS3_GAME.ps1"/><None Include="CMakePresets.json"/><None Include="README_PT-BR.md"/><None Include="input\EBOOT.ELF"/></ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

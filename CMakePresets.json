@@ -1,0 +1,44 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 25,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "windows-vs2022-runtime",
+      "displayName": "Windows x64 - Visual Studio 2022 + ClangCL (runtime only)",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/out/build/vs2022-runtime",
+      "cacheVariables": {
+        "PS3RECOMP_BUILD_TESTS": "OFF"
+      },
+      "toolset": "ClangCL"
+    },
+    {
+      "name": "windows-clang-ninja-runtime",
+      "displayName": "Windows x64 - clang-cl + Ninja (runtime only)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/clang-ninja-runtime",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_COMPILER": "clang-cl",
+        "CMAKE_CXX_COMPILER": "clang-cl",
+        "PS3RECOMP_BUILD_TESTS": "OFF"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "windows-vs2022-runtime-release",
+      "configurePreset": "windows-vs2022-runtime",
+      "configuration": "Release"
+    },
+    {
+      "name": "windows-clang-ninja-runtime-release",
+      "configurePreset": "windows-clang-ninja-runtime"
+    }
+  ]
+}
